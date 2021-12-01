@@ -1,0 +1,6 @@
+#pragma once
+#define MAIN_PANEL_WIDTH 250
+#define MAIN_PANEL_HEIGHT 100
+
+#define TOP_PANEL_WIDTH MAIN_PANEL_WIDTH
+#define TOP_PANEL_HEIGHT 50
