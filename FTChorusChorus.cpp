@@ -3,8 +3,8 @@
 
 FTChorusChorus::FTChorusChorus()
 :   mSampleRate(-1),
-    mFeedbackSample(0.0),
-    mTimeSmoothed(0),
+    mFeedbackSample(0.0f),
+    mTimeSmoothed(0.0f),
     mDelayIndex(0)
 {
     
@@ -31,19 +31,20 @@ void FTChorusChorus::process(float* inAudio,
                         float inTime,
                         float inFeedback,
                         float inWetDry,
+                        float inType,
                         float* inModulationBuffer,
                         float* outAudio,
                         int inNumSamplesToRender)
 {
     const float wet = inWetDry;
-    const float dry = 1 - wet;
+    const float dry = 1.0f - wet;
     const float feedbackMapped = jmap(inFeedback, 0.0f, 1.0f, 0.0f, 0.98f);
     
     for (int i = 0; i < inNumSamplesToRender; i++)
     {
-        const double delayTimeModulation = (inTime + (0.002f * inModulationBuffer[i]));
         
-        mTimeSmoothed -= smoothingCoefficient_Generic * (mTimeSmoothed - delayTimeModulation);
+        const double delayTimeModulation = (0.003 + (0.002f * inModulationBuffer[i]));
+        mTimeSmoothed -= smoothingCoefficient_Fine * (mTimeSmoothed - delayTimeModulation);
         
         const double delayTimeInSamples = (mTimeSmoothed * mSampleRate);
         const double sample = getInterpolatedSample(delayTimeInSamples);
