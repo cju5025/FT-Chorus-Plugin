@@ -6,7 +6,6 @@ enum FTChorusParameter
     kFTChorusParameter_DelayTime,
     kFTChorusParameter_DelayFeedback,
     kFTChorusParameter_DelayWetDry,
-    kFTChorusParameter_DelayType,
     kFTChorusParameter_OutputGain,
     kFTChorusParameter_ModulationRate,
     kFTChorusParameter_ModulationDepth,
@@ -19,7 +18,6 @@ static String FTChorusParameterID [ kFTChorusParameter_TotalNumParameters ] =
     "Time",
     "Feedback",
     "Wet / Dry",
-    "Type",
     "Output Gain",
     "Modulation Rate",
     "Modulation Depth"
@@ -31,7 +29,6 @@ static String FTChorusParameterLabel [ kFTChorusParameter_TotalNumParameters ] =
     "Time",
     "Feedback",
     "Wet/Dry",
-    "Type",
     "Output Gain",
     "Modulation Rate",
     "Modulation Depth"
@@ -43,7 +40,6 @@ static float FTChorusParameterDefaultValue [ kFTChorusParameter_TotalNumParamete
     0.25f,
     0.5f,
     0.5f,
-    0.0f,
     0.5f,
     0.25f,
     0.5f
