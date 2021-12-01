@@ -13,9 +13,7 @@ FTChorusTopPanel::~FTChorusTopPanel()
 }
 
 void FTChorusTopPanel::paint(Graphics& g)
-{
-    const Font font_1 ( "Helvetica Neue", 22.00f, Font::bold);
-    
+{    
     FTChorusPanelBase::paint(g);
     
     g.setColour(Colour(1, 124, 168));
