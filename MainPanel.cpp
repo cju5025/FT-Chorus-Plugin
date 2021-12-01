@@ -20,7 +20,7 @@ FTChorusMainPanel::~FTChorusMainPanel()
 void FTChorusMainPanel::paint(Graphics& g)
 {
     FTChorusPanelBase::paint(g);
-    g.setFont( font_1 );
+    g.setFont( font_2 );
     g.setColour( Colour( 1, 124, 168 ) );
     g.drawText( mLabel, 0, 0, getWidth(), 80, Justification::centred, false );
     
@@ -30,9 +30,16 @@ void FTChorusMainPanel::paint(Graphics& g)
         paintComponentLabel( g, mFXSliders[ i ] );
     }
     
-    const int sliderSize = 75;
-    int x = 85;
+    const int sliderSize = 50;
+    int x = 50;
     int y = (getHeight() * 0.5) - (sliderSize * 0.5);
+    
+    FTChorusParameterSlider* feedback =
+    new FTChorusParameterSlider(mProcessor->parameters, FTChorusParameterID[kFTChorusParameter_DelayFeedback]);
+    feedback->setBounds(x, y, sliderSize, sliderSize);
+    addAndMakeVisible(feedback);
+    mFXSliders.add(feedback);
+    x += sliderSize * 2;
     
     FTChorusParameterSlider* rate =
     new FTChorusParameterSlider(mProcessor->parameters, FTChorusParameterID[kFTChorusParameter_ModulationRate]);

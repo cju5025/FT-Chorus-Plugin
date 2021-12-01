@@ -28,7 +28,6 @@ void FTChorusChorus::reset()
 }
 
 void FTChorusChorus::process(float* inAudio,
-                        float inTime,
                         float inFeedback,
                         float inWetDry,
                         float* inModulationBuffer,
