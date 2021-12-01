@@ -1,5 +1,6 @@
 #pragma once
 #include "JuceHeader.h"
+#include "InterfaceDefines.h"
 #include "FTChorusDial.h"
 
 class FTChorusParameterSlider

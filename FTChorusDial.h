@@ -1,5 +1,6 @@
 #pragma once
 #include "JuceHeader.h"
+#include "InterfaceDefines.h"
 
 class FTChorusDial : public LookAndFeel_V4
 {
@@ -30,6 +31,7 @@ public:
         g.fillEllipse(dialArea);
         
         g.setColour(Colour(1, 124, 168));
+        g.setFont(font_2);
         
         Path dialTick;
         dialTick.addRectangle(-2.5f, -radius, 5.0f, radius * 0.75f);

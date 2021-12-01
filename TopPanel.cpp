@@ -17,6 +17,6 @@ void FTChorusTopPanel::paint(Graphics& g)
     FTChorusPanelBase::paint(g);
     
     g.setColour(Colour(1, 124, 168));
-    g.setFont( font_1 );
+    g.setFont(font_1);
     g.drawFittedText("FT Chorus", 0, 0, getWidth() - 10, getHeight(), Justification::centred, 1);
 }

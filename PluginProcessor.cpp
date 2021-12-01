@@ -159,7 +159,7 @@ void FTChorusAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
     {
         auto* channelData = buffer.getWritePointer (channel);
         
-        float rate = 0;
+        float rate = -(*parameters.getRawParameterValue(FTChorusParameterID[kFTChorusParameter_ModulationRate]));
         
         if (channel > 0)
         {
