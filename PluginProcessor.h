@@ -1,6 +1,8 @@
 #pragma once
 
-#include <JuceHeader.h>
+#include "JuceHeader.h"
+#include "FTChorusLFO.h"
+#include "FTChorusChorus.h"
 
 class FTChorusAudioProcessor  : public juce::AudioProcessor
 {
@@ -41,8 +43,16 @@ public:
     //==============================================================================
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
+    
+    AudioProcessorValueTreeState parameters;
 
 private:
+    
+    void initializeDSP();
+    
+    std::unique_ptr<FTChorusLFO> mLFO[8];
+    std::unique_ptr<FTChorusChorus> mChorus[8];
+    
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FTChorusAudioProcessor)
 };
