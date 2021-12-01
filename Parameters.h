@@ -18,7 +18,7 @@ static String FTChorusParameterID [ kFTChorusParameter_TotalNumParameters ] =
     "Input Gain",
     "Time",
     "Feedback",
-    "Wet Dry",
+    "Wet / Dry",
     "Type",
     "Output Gain",
     "Modulation Rate",
@@ -37,7 +37,7 @@ static String FTChorusParameterLabel [ kFTChorusParameter_TotalNumParameters ] =
     "Modulation Depth"
 };
 
-static float FTChorusParameterDefaultValue [ kFTChorusParameter_TotalNumParameters ] =
+static float FTChorusParameterDefaultValue [ kFTChorus Parameter_TotalNumParameters ] =
 {
     0.5f,
     0.25f,
