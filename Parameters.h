@@ -12,7 +12,6 @@ enum FTChorusParameter
 
 static String FTChorusParameterID [ kFTChorusParameter_TotalNumParameters ] =
 {
-    "Time",
     "Feedback",
     "Wet / Dry",
     "Modulation Rate",
@@ -21,7 +20,6 @@ static String FTChorusParameterID [ kFTChorusParameter_TotalNumParameters ] =
 
 static String FTChorusParameterLabel [ kFTChorusParameter_TotalNumParameters ] =
 {
-    "Time",
     "Feedback",
     "Wet/Dry",
     "Modulation Rate",
@@ -30,7 +28,6 @@ static String FTChorusParameterLabel [ kFTChorusParameter_TotalNumParameters ] =
 
 static float FTChorusParameterDefaultValue [ kFTChorusParameter_TotalNumParameters ] =
 {
-    0.25f,
     0.5f,
     0.5f,
     0.25f,
