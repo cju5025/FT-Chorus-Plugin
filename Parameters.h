@@ -2,15 +2,15 @@
 
 enum FTChorusParameter
 {
-    kDCV3Parameter_InputGain = 0,
-    kDCV3Parameter_DelayTime,
-    kDCV3Parameter_DelayFeedback,
-    kDCV3Parameter_DelayWetDry,
-    kDCV3Parameter_DelayType,
-    kDCV3Parameter_OutputGain,
-    kDCV3Parameter_ModulationRate,
-    kDCV3Parameter_ModulationDepth,
-    kDCV3Parameter_TotalNumParameters
+    kFTChorusParameter_InputGain = 0,
+    kFTChorusParameter_DelayTime,
+    kFTChorusParameter_DelayFeedback,
+    kFTChorusParameter_DelayWetDry,
+    kFTChorusParameter_DelayType,
+    kFTChorusParameter_OutputGain,
+    kFTChorusParameter_ModulationRate,
+    kFTChorusParameter_ModulationDepth,
+    kFTChorusParameter_TotalNumParameters
 };
 
 static String FTChorusParameterID [ kFTChorusParameter_TotalNumParameters ] =
@@ -37,7 +37,7 @@ static String FTChorusParameterLabel [ kFTChorusParameter_TotalNumParameters ] =
     "Modulation Depth"
 };
 
-static float FTChorusParameterDefaultValue [ kFTChorus Parameter_TotalNumParameters ] =
+static float FTChorusParameterDefaultValue [ kFTChorusParameter_TotalNumParameters ] =
 {
     0.5f,
     0.25f,
