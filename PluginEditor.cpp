@@ -4,25 +4,22 @@
 FTChorusAudioProcessorEditor::FTChorusAudioProcessorEditor (FTChorusAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p)
 {
-    setSize (400, 300);
+    setSize (MAIN_PANEL_WIDTH, MAIN_PANEL_HEIGHT);
+    mMainPanel = std::make_unique<FTChorusMainPanel>(&audioProcessor);
+    addAndMakeVisible(mMainPanel.get());
 }
 
 FTChorusAudioProcessorEditor::~FTChorusAudioProcessorEditor()
 {
+    setLookAndFeel(nullptr);
 }
 
-//==============================================================================
 void FTChorusAudioProcessorEditor::paint (juce::Graphics& g)
 {
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
 
-    g.setColour (juce::Colours::white);
-    g.setFont (15.0f);
-    g.drawFittedText ("Hello World!", getLocalBounds(), juce::Justification::centred, 1);
 }
 
 void FTChorusAudioProcessorEditor::resized()
 {
-    // This is generally where you'll want to lay out the positions of any
-    // subcomponents in your editor..
+
 }
