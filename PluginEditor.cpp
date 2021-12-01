@@ -16,7 +16,7 @@ FTChorusAudioProcessorEditor::~FTChorusAudioProcessorEditor()
 
 void FTChorusAudioProcessorEditor::paint (juce::Graphics& g)
 {
-
+    g.setFont(font_3);
 }
 
 void FTChorusAudioProcessorEditor::resized()
