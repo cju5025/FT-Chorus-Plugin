@@ -1,7 +1,7 @@
 #include "FTChorusChorus.h"
 #include "JuceHeader.h"
 
-FTChorusChorus::DCV3Delay()
+FTChorusChorus::FTChorusChorus()
 :   mSampleRate(-1),
     mFeedbackSample(0.0),
     mTimeSmoothed(0),
@@ -10,7 +10,7 @@ FTChorusChorus::DCV3Delay()
     
 }
 
-FTChorusChorus::~DCV3Delay()
+FTChorusChorus::~FTChorusChorus()
 {
     
 }
