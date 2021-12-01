@@ -10,5 +10,5 @@ const double TWO_PI = 6.28318530718;
 
 inline float linearInterpolation(float v0, float v1, float t)
 {
-    return (1 -t) * v0 + t * v1;
+    return (1 - t) * v0 + t * v1;
 }
