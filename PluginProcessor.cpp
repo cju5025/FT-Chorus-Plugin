@@ -171,7 +171,6 @@ void FTChorusAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
                                buffer.getNumSamples());
         
         mChorus[channel]->process(channelData,
-                                 *parameters.getRawParameterValue(FTChorusParameterID[kFTChorusParameter_DelayTime]),
                                  *parameters.getRawParameterValue(FTChorusParameterID[kFTChorusParameter_DelayFeedback]),
                                  *parameters.getRawParameterValue(FTChorusParameterID[kFTChorusParameter_DelayWetDry]),
                                  mLFO[channel]->getBuffer(),

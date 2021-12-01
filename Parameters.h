@@ -2,8 +2,7 @@
 
 enum FTChorusParameter
 {
-    kFTChorusParameter_DelayTime = 0,
-    kFTChorusParameter_DelayFeedback,
+    kFTChorusParameter_DelayFeedback = 0,
     kFTChorusParameter_DelayWetDry,
     kFTChorusParameter_ModulationRate,
     kFTChorusParameter_ModulationDepth,
