@@ -18,6 +18,7 @@ FTChorusChorus::~FTChorusChorus()
 void FTChorusChorus::setSampleRate(double inSampleRate)
 {
     mSampleRate = inSampleRate;
+    reset();
 }
 
 void FTChorusChorus::reset()
