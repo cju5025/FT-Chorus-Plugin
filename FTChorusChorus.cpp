@@ -28,11 +28,11 @@ void FTChorusChorus::reset()
 }
 
 void FTChorusChorus::process(float* inAudio,
-                        float inFeedback,
-                        float inWetDry,
-                        float* inModulationBuffer,
-                        float* outAudio,
-                        int inNumSamplesToRender)
+                             float inFeedback,
+                             float inWetDry,
+                             float* inModulationBuffer,
+                             float* outAudio,
+                             int inNumSamplesToRender)
 {
     const float wet = inWetDry;
     const float dry = 1.0f - wet;
@@ -42,7 +42,7 @@ void FTChorusChorus::process(float* inAudio,
     {
         
         const double delayTimeModulation = (0.003 + (0.002f * inModulationBuffer[i]));
-        mTimeSmoothed -= smoothingCoefficient_Fine * (mTimeSmoothed - delayTimeModulation);
+        mTimeSmoothed = mTimeSmoothed - smoothingCoefficient_Fine * (mTimeSmoothed - delayTimeModulation);
         
         const double delayTimeInSamples = (mTimeSmoothed * mSampleRate);
         const double sample = getInterpolatedSample(delayTimeInSamples);
@@ -51,11 +51,11 @@ void FTChorusChorus::process(float* inAudio,
         
         mFeedbackSample = sample;
         
-        outAudio[i] = (inAudio[i] * dry + sample * wet);
+        outAudio[i] = ((inAudio[i] * dry) + (sample * wet));
+                
+        mDelayIndex += 1;
         
-        mDelayIndex++;
-        
-        if (mDelayIndex > maxBufferSize)
+        if (mDelayIndex >= maxBufferSize)
         {
             mDelayIndex -= maxBufferSize;
         }
@@ -64,21 +64,21 @@ void FTChorusChorus::process(float* inAudio,
 
 double FTChorusChorus::getInterpolatedSample(float inDelayTimeInSamples)
 {
-    double readPosition = (double)mDelayIndex - inDelayTimeInSamples;
+    float readPosition = (float)mDelayIndex - inDelayTimeInSamples;
     
     if(readPosition < 0.0f)
     {
-        readPosition += maxBufferSize;
+        readPosition += (float)maxBufferSize;
     }
     
     int index_y0 = (int)readPosition - 1;
     if (index_y0 < 0)
     {
-        index_y0 += maxBufferSize;
+        index_y0 += (float)maxBufferSize;
     }
     
     int index_y1 = readPosition;
-    if (index_y1 > maxBufferSize)
+    if (index_y1 >= maxBufferSize)
     {
         index_y1 -= maxBufferSize;
     }
@@ -87,7 +87,7 @@ double FTChorusChorus::getInterpolatedSample(float inDelayTimeInSamples)
     const float sample_y1 = mBuffer[index_y1];
     const float t = readPosition - (int)readPosition;
     
-    double outSample = linearInterpolation(sample_y0, sample_y1, t);
+    float outSample = linearInterpolation(sample_y0, sample_y1, t);
     
     return outSample;
 }
