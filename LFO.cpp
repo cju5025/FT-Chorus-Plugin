@@ -1,4 +1,4 @@
-#include "FTChorusLFO.h"
+#include "LFO.h"
 #include "JuceHeader.h"
 
 FTChorusLFO::FTChorusLFO()

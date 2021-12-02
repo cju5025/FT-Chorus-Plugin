@@ -2,7 +2,7 @@
 
 #include "PanelBase.h"
 #include "TopPanel.h"
-#include "FTChorusParameterSlider.h"
+#include "ParameterSlider.h"
 #include "GUIHelpers.h"
 
 class FTChorusMainPanel

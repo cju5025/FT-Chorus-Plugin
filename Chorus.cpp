@@ -1,4 +1,4 @@
-#include "FTChorusChorus.h"
+#include "Chorus.h"
 #include "JuceHeader.h"
 
 FTChorusChorus::FTChorusChorus()
@@ -42,7 +42,7 @@ void FTChorusChorus::process(float* inAudio,
     for (int i = 0; i < inNumSamplesToRender; i++)
     {
         
-        const double delayTimeModulation = (0.003 + (0.002f * inModulationBuffer[i]));
+        const double delayTimeModulation = (0.003f + (0.002f * inModulationBuffer[i]));
         mTimeSmoothed = mTimeSmoothed - smoothingCoefficient_Fine * (mTimeSmoothed - delayTimeModulation);
         
         const double delayTimeInSamples = (mTimeSmoothed * mSampleRate);

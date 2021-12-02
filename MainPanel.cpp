@@ -31,14 +31,14 @@ void FTChorusMainPanel::paint(Graphics& g)
     int y = (getHeight()) - (sliderSize * 1.25);
     
     FTChorusParameterSlider* feedback =
-    new FTChorusParameterSlider(mProcessor->parameters, FTChorusParameterID[kFTChorusParameter_DelayFeedback]);
+    new FTChorusParameterSlider(mProcessor->parameters, FTChorusParameterID[kFTChorusParameter_Feedback]);
     feedback->setBounds(x, y, sliderSize, sliderSize);
     addAndMakeVisible(feedback);
     mFXSliders.add(feedback);
     x += sliderSize * 2;
     
     FTChorusParameterSlider* wetdry =
-    new FTChorusParameterSlider(mProcessor->parameters, FTChorusParameterID[kFTChorusParameter_DelayWetDry]);
+    new FTChorusParameterSlider(mProcessor->parameters, FTChorusParameterID[kFTChorusParameter_WetDry]);
     wetdry->setBounds(x, y, sliderSize, sliderSize);
     addAndMakeVisible(wetdry);
     mFXSliders.add(wetdry);
