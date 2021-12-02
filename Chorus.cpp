@@ -79,7 +79,7 @@ double FTChorusChorus::getInterpolatedSample(float inDelayTimeInSamples)
     }
     
     int index_y1 = readPosition;
-    if (index_y1 >= maxBufferSize)
+    if (index_y1 > maxBufferSize)
     {
         index_y1 -= maxBufferSize;
     }
