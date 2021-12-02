@@ -1,8 +1,8 @@
 #pragma once
 
 #include "JuceHeader.h"
-#include "FTChorusLFO.h"
-#include "FTChorusChorus.h"
+#include "LFO.h"
+#include "Chorus.h"
 
 class FTChorusAudioProcessor  : public juce::AudioProcessor
 {
