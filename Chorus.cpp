@@ -1,5 +1,4 @@
 #include "Chorus.h"
-#include "JuceHeader.h"
 
 FTChorusChorus::FTChorusChorus()
 :   mSampleRate(-1),
@@ -38,6 +37,7 @@ void FTChorusChorus::process(float* inAudio,
     const float wet = inWetDry;
     const float dry = 1.0f - wet;
     const float feedbackMapped = jmap(inFeedback, 0.0f, 1.0f, 0.0f, 0.98f);
+    
     
     for (int i = 0; i < inNumSamplesToRender; i++)
     {

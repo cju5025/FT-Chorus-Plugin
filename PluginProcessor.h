@@ -53,6 +53,9 @@ private:
     std::unique_ptr<FTChorusLFO> mLFO[8];
     std::unique_ptr<FTChorusChorus> mChorus[8];
     
+    SmoothedValue<float, ValueSmoothingTypes::Linear> mFeedbackSmoothed { 0.0f };
+    SmoothedValue<float, ValueSmoothingTypes::Linear> mDryWetSmoothed { 0.0f };
+    
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (FTChorusAudioProcessor)
 };
