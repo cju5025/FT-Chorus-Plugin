@@ -109,6 +109,9 @@ void FTChorusAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlo
         mChorus[i]->setSampleRate(sampleRate);
         mLFO[i]->setSampleRate(sampleRate);
     }
+    
+    mDryWetSmoothed.reset(sampleRate, 0.004f);
+    mFeedbackSmoothed.reset(sampleRate, 0.004f);
 }
 
 void FTChorusAudioProcessor::releaseResources()
@@ -170,9 +173,12 @@ void FTChorusAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
                                *parameters.getRawParameterValue(FTChorusParameterID[kFTChorusParameter_ModulationDepth]),
                                buffer.getNumSamples());
         
+        mDryWetSmoothed.setTargetValue(*parameters.getRawParameterValue(FTChorusParameterID[kFTChorusParameter_WetDry]));
+        mFeedbackSmoothed.setTargetValue(*parameters.getRawParameterValue(FTChorusParameterID[kFTChorusParameter_Feedback]));
+        
         mChorus[channel]->process(channelData,
-                                 *parameters.getRawParameterValue(FTChorusParameterID[kFTChorusParameter_Feedback]),
-                                 *parameters.getRawParameterValue(FTChorusParameterID[kFTChorusParameter_WetDry]),
+                                 mFeedbackSmoothed.getNextValue(),
+                                 mDryWetSmoothed.getNextValue(),
                                  mLFO[channel]->getBuffer(),
                                  channelData,
                                  buffer.getNumSamples());

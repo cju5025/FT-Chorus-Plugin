@@ -1,5 +1,6 @@
 #pragma once
 #include "AudioHelpers.h"
+#include "JuceHeader.h"
 
 class FTChorusChorus
 {
