@@ -22,8 +22,15 @@ void FTChorusLFO::setSampleRate(double inSampleRate)
     mSampleRate = inSampleRate;
 }
 
+void FTChorusLFO::getHostBPM()
+{
+    DBG(mHostInfo.bpm);
+}
+
 void FTChorusLFO::process(float inRate, float inDepth, int inNumSamples)
 {
+    getHostBPM();
+    
     const float rate = jmap(inRate, 0.0f, 1.0f, 0.01f, 10.0f);
     
     for (int i = 0; i < inNumSamples; i++)

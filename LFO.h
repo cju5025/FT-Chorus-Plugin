@@ -1,5 +1,6 @@
 #pragma once
 #include "AudioHelpers.h"
+#include "JuceHeader.h"
 
 class FTChorusLFO
 {
@@ -10,6 +11,8 @@ public:
     void reset();
     
     void setSampleRate(double inSampleRate);
+    
+    void getHostBPM();
     
     void process(float inRate, float inDepth, int inNumSamples);
     
@@ -22,4 +25,6 @@ private:
     float mPhase;
     
     float mBuffer[maxBufferSize];
+    
+    AudioPlayHead::CurrentPositionInfo mHostInfo;
 };
